@@ -191,6 +191,13 @@ gulp.task('serve:dist', ['default'], () =>
   })
 );
 
+//Deploy to github.io
+gulp.task('deploy', ['build'], () => {
+  return gulp.src('dist')
+    .pipe($.subtree())
+    .pipe($.clean());
+});
+
 // Build production files, the default task
 gulp.task('default', ['clean'], cb =>
   runSequence(
@@ -251,4 +258,4 @@ gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
 
 // Load custom tasks from the `tasks` directory
 // Run: `npm install --save-dev require-dir` from the command-line
-// try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
+// try { require('require-dir')('tasks'); } catch (err) { console.error(err); }\
