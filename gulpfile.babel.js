@@ -17,7 +17,10 @@
  *
  */
 
+/*jshint -W097*/
 'use strict';
+
+/*jshint esversion: 6*/
 
 // This gulpfile makes use of new JavaScript features.
 // Babel handles this without us having to do anything. It just works.
@@ -194,7 +197,11 @@ gulp.task('serve:dist', ['default'], () =>
 //Deploy to github.io
 gulp.task('deploy', ['default'], () => {
   return gulp.src('dist')
-    .pipe($.subtree())
+    .pipe($.subtree({
+      remote: 'upstream',
+      branch: 'gh-pages',
+      message: 'deploying...'
+    }))
     .pipe($.clean());
 });
 
