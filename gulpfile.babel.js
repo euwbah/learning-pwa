@@ -195,7 +195,7 @@ gulp.task('serve:dist', ['default'], () =>
 );
 
 //Deploy to github.io
-gulp.task('deploy', ['default'], () => {
+gulp.task('deploy', ['build'], () => {
   return gulp.src('dist')
     .pipe($.subtree({
       remote: 'upstream',
@@ -203,6 +203,10 @@ gulp.task('deploy', ['default'], () => {
       message: 'deploying...'
     }))
     .pipe($.clean());
+});
+
+gulp.task('build', ['default'], () = {
+  return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
 // Build production files, the default task
