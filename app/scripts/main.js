@@ -33,8 +33,6 @@
       )
     );
 
-  console.log('script running');
-
   if ('serviceWorker' in navigator &&
       (window.location.protocol === 'https:' || isLocalhost)) {
     navigator.serviceWorker.register('service-worker.js')
@@ -61,6 +59,7 @@
                 break;
 
               case 'redundant':
+                console.log('redundant');
                 throw new Error('The installing ' +
                                 'service worker became redundant.');
 
@@ -77,4 +76,6 @@
   }
 
   // Your custom JavaScript goes here
+  console.log('script running');
+
 })();
