@@ -33,6 +33,8 @@
       )
     );
 
+  console.log('script running');
+
   if ('serviceWorker' in navigator &&
       (window.location.protocol === 'https:' || isLocalhost)) {
     navigator.serviceWorker.register('service-worker.js')
