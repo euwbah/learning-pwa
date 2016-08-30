@@ -197,11 +197,13 @@ gulp.task('serve:dist', ['default'], () =>
 //Deploy to github.io
 gulp.task('deploy', ['build'], () => {
   return gulp.src('dist')
-    .pipe($.subtree({
-      remote: 'upstream',
-      branch: 'gh-pages',
-      message: 'deploying...'
-    }))
+    .pipe($.subtree(
+      // {
+      //   remote: 'upstream',
+      //   branch: 'gh-pages',
+      //   message: 'deploying...'
+      // }
+    ))
     .pipe($.clean());
 });
 
