@@ -205,7 +205,7 @@ gulp.task('deploy', ['build'], () => {
     .pipe($.clean());
 });
 
-gulp.task('build', ['default'], () = {
+gulp.task('build', ['default'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
