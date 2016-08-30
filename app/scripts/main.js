@@ -55,7 +55,7 @@
                 // fresh content will have been added to the cache.
                 // It's the perfect time to display a "New content is
                 // available; please refresh." message in the page's interface.
-                console.log("alert: New content is available; please refresh");
+                console.log('alert: New content is available; please refresh');
                 break;
 
               case 'redundant':
@@ -64,7 +64,7 @@
 
               default:
                 // Ignore
-                console.log("Service Worker: no new versions of the page found");
+                console.log('Service Worker: no new versions of the page found');
             }
           };
         }
