@@ -120,7 +120,7 @@ gulp.task('scripts', () =>
       .pipe($.babel())
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('.tmp/scripts'))
-      .pipe($.concat('main.min.js'))
+      .pipe($.concat('main.js'))
       .pipe($.uglify({preserveComments: 'some'}))
       // Output files
       .pipe($.size({title: 'scripts'}))
@@ -199,7 +199,7 @@ gulp.task('deploy', ['build'], () => {
   return gulp.src('dist')
     .pipe($.subtree(
       // {
-      //   remote: 'upstream',
+      //   remote: 'origin',
       //   branch: 'gh-pages',
       //   message: 'deploying...'
       // }
