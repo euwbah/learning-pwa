@@ -45,7 +45,8 @@ gulp.task('lint', () =>
   gulp.src('app/scripts/**/*.js')
     .pipe($.eslint())
     .pipe($.eslint.format())
-    .pipe($.if(!browserSync.active, $.eslint.failOnError()))
+    //don't fail on error
+    //.pipe($.if(!browserSync.active, $.eslint.failOnError()))
 );
 
 // Optimize images

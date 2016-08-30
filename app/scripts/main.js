@@ -18,7 +18,6 @@
  */
 /* eslint-env browser */
 (function() {
-  'use strict';
 
   // Check to make sure service workers are supported in the current browser,
   // and that the current page is accessed from a secure origin. Using a
@@ -35,10 +34,16 @@
 
   if ('serviceWorker' in navigator &&
       (window.location.protocol === 'https:' || isLocalhost)) {
+
+    console.log('service worker is supported');
+
     navigator.serviceWorker.register('service-worker.js')
+
     .then(function(registration) {
       // updatefound is fired if service-worker.js changes.
       registration.onupdatefound = function() {
+
+        console.log('an update was found');
         // updatefound is also fired the very first time the SW is installed,
         // and there's no need to prompt for a reload at that point.
         // So check here to see if the page is already controlled,
@@ -65,7 +70,7 @@
 
               default:
                 // Ignore
-                console.log('Service Worker: no new versions of the page found');
+                console.log('Service Worker: default');
             }
           };
         }
@@ -77,5 +82,4 @@
 
   // Your custom JavaScript goes here
   console.log('script running');
-
 })();
